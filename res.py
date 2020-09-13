@@ -3,6 +3,7 @@ from colorama import init
 import socket
 import getpass
 from datetime import datetime
+import platform
 
 def perror(str,time):
     init()
@@ -77,6 +78,12 @@ def is_available(website, port = None):
         except:
             return False
 
+def get_os_name():
+    return str(platform.system())
 
+def get_full_os_name():
+    return str(platform.platform())
 
+def get_python_version():
+    return str(platform.python_version())
 
