@@ -5,33 +5,33 @@ import getpass
 from datetime import datetime
 import platform
 
-def perror(str,time):
+def perror(str,time=False):
     init()
     if time:
-        print(f"{Fore.RED}{gettime()}[x] {str}")
+        print(f"{Fore.RED}{gettime()} [x] {str} {Fore.WHITE}")
     else:
-        print(f"{Fore.RED}[x] {str}")
+        print(f"{Fore.RED}[x] {str} {Fore.WHITE}")
 
-def pwarn(str,time):
+def pwarn(str,time=False):
     init()
     if time:
-        print(f"{Fore.YELLOW}{gettime()}[!] {str}")
+        print(f"{Fore.YELLOW}{gettime()} [!] {str} {Fore.WHITE}")
     else:
-        print(f"{Fore.YELLOW}[!] {str}")
+        print(f"{Fore.YELLOW}[!] {str} {Fore.WHITE}")
 
-def pinfo(str,time):
+def pinfo(str,time=False):
     init()
     if time:
-        print(f"{Fore.BLUE}{gettime()}[+] {str}")
+        print(f"{Fore.BLUE}{gettime()} [+] {str} {Fore.WHITE}")
     else:
-        print(f"{Fore.BLUE}[+] {str}")
+        print(f"{Fore.BLUE}[+] {str} {Fore.WHITE}")
 
-def psuccess(str,time):
+def psuccess(str,time=False):
     init()
     if time:
-        print(f"{Fore.GREEN}{gettime()}[v] {str}")
+        print(f"{Fore.GREEN}{gettime()} [v] {str} {Fore.WHITE}")
     else:
-        print(f"{Fore.GREEN}[v] {str}")
+        print(f"{Fore.GREEN}[v] {str} {Fore.WHITE}")
 
 def get_pv_ip():
     return socket.gethostbyname_ex(socket.gethostname())[1:]
