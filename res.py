@@ -1,9 +1,10 @@
 from colorama import Fore, Back, Style
 from colorama import init
 import socket
-import getpass
+from getpass import getpass, getuser
 from datetime import datetime
-import platform
+from platform import system, platform, python_version
+from os import getcwd, path
 
 def perror(str,time=False):
     init()
@@ -48,7 +49,7 @@ def gethostname():
     return socket.gethostname()
 
 def getusername():
-    return getpass.getuser()
+    return getuser()
 
 def gettime():
     return str(datetime.now().strftime("%H:%M:%S"))
@@ -79,11 +80,23 @@ def is_available(website, port = None):
             return False
 
 def get_os_name():
-    return str(platform.system())
+    return str(system())
 
 def get_full_os_name():
-    return str(platform.platform())
+    return str(platform())
 
 def get_python_version():
-    return str(platform.python_version())
+    return str(python_version())
+
+def get_file_number_of_lines(fname):
+    with open(f"{getcwd()}/{fname}") as f:
+        for i, l in enumerate(f):
+            pass
+    return i + 1
+
+def get_file_size(fname):
+    byte = int(path.getsize(f"{getcwd()}/{fname}"))
+    return f"{byte/1000000}Megabytes"
+
+
 
