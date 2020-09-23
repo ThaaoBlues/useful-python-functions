@@ -36,7 +36,7 @@ def psuccess(str,time=False):
 
 def get_pv_ip():
     ip = socket.gethostbyname_ex(socket.gethostname())[1:]
-    if ip == "127.0.1.1" or ip == "127.0.0.1" or ip == "0.0.0.0":
+    if "127.0.1.1" in str(ip) or "127.0.1.1" in str(ip) or "127.0.1.1" in str(ip):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
         return s.getsockname()[0]
