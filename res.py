@@ -35,7 +35,13 @@ def psuccess(str,time=False):
         print(f"{Fore.GREEN}[v] {str} {Fore.WHITE}")
 
 def get_pv_ip():
-    return socket.gethostbyname_ex(socket.gethostname())[1:]
+    ip = socket.gethostbyname_ex(socket.gethostname())[1:]
+    if ip == "127.0.1.1" or ip == "127.0.0.1" or ip == "0.0.0.0":
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        return s.getsockname()[0]
+    else :
+        return ip
 
 def get_pb_ip():
     sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
